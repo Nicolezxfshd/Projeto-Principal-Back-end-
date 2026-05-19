@@ -2,11 +2,17 @@
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from pydantic import BaseModel, ConfigDict
 import secrets
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
+
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 from sqlalchemy import create_engine, Column, Integer, String, Boolean
 from sqlalchemy.orm import declarative_base, sessionmaker, Session
 
-DATABASE_URL = "sqlite:///./tarefas.db"
+
 
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -19,8 +25,8 @@ app = FastAPI(
 )
 
 # Auth básica
-USERNAME = "admin"
-PASSWORD = "admin123"
+USERNAME = os.getenv("USERNAME")
+PASSWORD = os.getenv("PASSWORD")
 security = HTTPBasic()
 
 def verificar_usuario(credentials: HTTPBasicCredentials = Depends(security)):
