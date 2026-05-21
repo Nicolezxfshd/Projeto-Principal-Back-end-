@@ -5,12 +5,13 @@ description = ""
 authors = [
     {name = "Nicolezxfshd",email = "nicolezimmer@gmail.com"}
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.11,<4.0"
 dependencies = [
     "sqlalchemy (>=2.0.48,<3.0.0)",
     "aiosqlite (>=0.22.1,<0.23.0)",
     "fastapi (>=0.135.2,<0.136.0)",
-    "uvicorn (>=0.42.0,<0.43.0)"
+    "uvicorn (>=0.42.0,<0.43.0)",
+    "python-dotenv (>=1.2.2,<2.0.0)"
 ]
 
 
