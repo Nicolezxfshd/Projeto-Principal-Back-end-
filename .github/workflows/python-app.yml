@@ -1,3 +1,4 @@
+# CI: executa os testes automaticamente
 name: FastAPI - Basic Check
 
 on:
