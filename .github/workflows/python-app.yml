@@ -1,4 +1,3 @@
-# CI: executa os testes automaticamente
 name: FastAPI - Basic Check
 
 on:
@@ -10,6 +9,11 @@ on:
 jobs:
   fastapi-tests:
     runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: sqlite:///./test_database.db
+      APP_USERNAME: admin
+      APP_PASSWORD: admin123
 
     steps:
       - name: Checkout do código
